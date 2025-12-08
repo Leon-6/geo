@@ -363,14 +363,19 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 
 
    		 	case geosite.RuleTypeDomainRegex:
-        // 先替换掉转义符 `\.`
-			    txtNoKeyword.WriteString(item.Value + "\n")
-        	 	cleanRegex := strings.ReplaceAll(item.Value, `\.`, ".")
-			    txtNoKeyword.WriteString(cleanRegex + "\n")
-        // 从清理后的字符串中提取域名结尾部分
-       		 	re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
-        	 	match := re.FindString(cleanRegex)
-        	 	if match != "" {
+        // 1. 去掉转义符
+       			 clean := strings.ReplaceAll(item.Value, `\.`, ".")
+        // 2. 去掉开头结尾锚点
+        		 clean = strings.TrimPrefix(clean, "^")
+        		 clean = strings.TrimSuffix(clean, "$")
+        // 3. 删除正则特殊匹配符号（简单粗暴清理）
+       			 clean = regexp.MustCompile(`[\\]\S\+`).ReplaceAllString(clean, "")
+        		 clean = regexp.MustCompile(`\[[^\]]+\]`).ReplaceAllString(clean, "")
+        		 clean = regexp.MustCompile(`\([^\)]+\)`).ReplaceAllString(clean, "")
+        		 clean = regexp.MustCompile(`\?|\*|\+`).ReplaceAllString(clean, "")
+        // 4. 提取最后的域名部分
+        		 match := regexp.MustCompile(`([a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+)$`).FindString(clean)
+        	 	 if match != "" {
             		txtNoKeyword.WriteString(match + "\n")
 			   
 
