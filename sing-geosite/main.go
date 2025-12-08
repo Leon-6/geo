@@ -255,6 +255,99 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 			return err
 		}
 		outputRuleSet.Close()
+
+
+
+		// ============================
+		// TXT 输出区开始
+		// ============================
+
+		// ---- TXT: ALL ----
+		txtPath := filepath.Join(ruleSetOutput, "geosite-"+code+".txt")
+		txtAll, err := os.Create(txtPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			txtAll.WriteString(item.Value + "\n")
+		}
+		txtAll.Close()
+
+		// ---- TXT: Domain ----
+		txtDomainPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-domain.txt")
+		txtDomain, err := os.Create(txtDomainPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			if item.Type == geosite.RuleTypeDomain {
+				txtDomain.WriteString(item.Value + "\n")
+			}
+		}
+		txtDomain.Close()
+
+		// ---- TXT: Suffix ----
+		txtSuffixPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-suffix.txt")
+		txtSuffix, err := os.Create(txtSuffixPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			if item.Type == geosite.RuleTypeDomainSuffix {
+				txtSuffix.WriteString(item.Value + "\n")
+			}
+		}
+		txtSuffix.Close()
+
+		// ---- TXT: Keyword ----
+		txtKeywordPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-keyword.txt")
+		txtKeyword, err := os.Create(txtKeywordPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			if item.Type == geosite.RuleTypeDomainKeyword {
+				txtKeyword.WriteString(item.Value + "\n")
+			}
+		}
+		txtKeyword.Close()
+
+		// ---- TXT: Regex ----
+		txtRegexPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-regex.txt")
+		txtRegex, err := os.Create(txtRegexPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			if item.Type == geosite.RuleTypeDomainRegex {
+				txtRegex.WriteString(item.Value + "\n")
+			}
+		}
+		txtRegex.Close()
+
+		// ---- TXT: No Keyword / No Regex ----
+		txtCleanPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-nokeyword-noregex.txt")
+		txtClean, err := os.Create(txtCleanPath)
+		if err != nil {
+			return err
+		}
+		for _, item := range domains {
+			if item.Type == geosite.RuleTypeDomain ||
+				item.Type == geosite.RuleTypeDomainSuffix {
+
+				txtClean.WriteString(item.Value + "\n")
+			}
+		}
+		txtClean.Close()
+		
+
+		
+
+
+		
+
+		
+		
 	}
 	return nil
 }
