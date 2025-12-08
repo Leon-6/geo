@@ -258,6 +258,7 @@ func release(source string, destination string, output string, ruleSetOutput str
 		outputRuleSet.Close()
 
 		
+        // ----------------- 新增 TXT 输出：全部 CIDR -----------------
         txtPath, _ := filepath.Abs(filepath.Join(ruleSetOutput, "geoip-"+countryCode+".txt"))
         os.Stderr.WriteString("write " + txtPath + "\n")
 
@@ -265,14 +266,40 @@ func release(source string, destination string, output string, ruleSetOutput str
         if err != nil {
             return err
         }
-
-        // 写入每一行 CIDR：直接按行输出
         for _, cidr := range ipNets {
             txtFile.WriteString(cidr.String() + "\n")
         }
         txtFile.Close()
-		
 
+        // ----------------- 新增 TXT 输出：仅 IPv4 -----------------
+        txt4Path, _ := filepath.Abs(filepath.Join(ruleSetOutput, "geoip-"+countryCode+"-ipv4.txt"))
+        os.Stderr.WriteString("write " + txt4Path + "\n")
+
+        txt4File, err := os.Create(txt4Path)
+        if err != nil {
+            return err
+        }
+        for _, cidr := range ipNets {
+            if cidr.IP.To4() != nil { // IPv4 判断
+                txt4File.WriteString(cidr.String() + "\n")
+            }
+        }
+        txt4File.Close()
+
+        // ----------------- 新增 TXT 输出：仅 IPv6 -----------------
+        txt6Path, _ := filepath.Abs(filepath.Join(ruleSetOutput, "geoip-"+countryCode+"-ipv6.txt"))
+        os.Stderr.WriteString("write " + txt6Path + "\n")
+
+        txt6File, err := os.Create(txt6Path)
+        if err != nil {
+            return err
+        }
+        for _, cidr := range ipNets {
+            if cidr.IP.To4() == nil { // IPv6 判断（IPv4 To4 != nil）
+                txt6File.WriteString(cidr.String() + "\n")
+            }
+        }
+        txt6File.Close()
 
 		
 	}
