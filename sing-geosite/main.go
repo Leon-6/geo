@@ -362,14 +362,16 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
     		    }
 
 
-   		 case geosite.RuleTypeDomainRegex:
+   		 	case geosite.RuleTypeDomainRegex:
         // 先替换掉转义符 `\.`
-        	 cleanRegex := strings.ReplaceAll(item.Value, `\.`, ".")
+			    txtNoKeyword.WriteString(item.Value + "\n")
+        	 	cleanRegex := strings.ReplaceAll(item.Value, `\.`, ".")
+			    txtNoKeyword.WriteString(cleanRegex + "\n")
         // 从清理后的字符串中提取域名结尾部分
-       		 re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
-        	 match := re.FindString(cleanRegex)
-        	 if match != "" {
-            	txtNoKeyword.WriteString(match + "\n")
+       		 	re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+        	 	match := re.FindString(cleanRegex)
+        	 	if match != "" {
+            		txtNoKeyword.WriteString(match + "\n")
 			   
 
 			   
