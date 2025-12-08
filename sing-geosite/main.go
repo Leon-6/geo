@@ -362,8 +362,8 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
     		    }
   		   case geosite.RuleTypeDomainRegex:
    		     // 提取域名部分
-			   regexStr = strings.TrimPrefix(regexStr, "^")
-			   regexStr = strings.TrimSuffix(regexStr, "$")
+			   item.Value = strings.TrimPrefix(item.Value, "^")
+			   item.Value = strings.TrimSuffix(item.Value, "$")
    		       re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
     		       match := re.FindString(item.Value)
      		   if match != "" {
