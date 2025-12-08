@@ -363,8 +363,9 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
   		   case geosite.RuleTypeDomainRegex:
    		     // 提取域名部分
 			   item.Value = strings.TrimPrefix(item.Value, "^")
-			   item.Value = strings.TrimSuffix(item.Value, "$")
+			   //item.Value = strings.TrimSuffix(item.Value, "$")
    		       re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+			   //re := regexp.MustCompile(`[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}`)
     		       match := re.FindString(item.Value)
      		   if match != "" {
      		       txtNoKeyword.WriteString(match + "\n")
@@ -415,7 +416,7 @@ func release(source string, destination string, output string, cnOutput string, 
 func main() {
 	err := release(
 		"Loyalsoldier/v2ray-rules-dat",
-		"lyc8503/sing-geosite",
+		"Leon-6/sing-geosite",
 		"geosite.db",
 		"geosite-cn.db",
 		"rule-set",
