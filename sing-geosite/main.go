@@ -398,7 +398,7 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
     		   //match := re.FindString(item.Value)
      		   //if match != "" {
      		     //  txtNoKeyword.WriteString(match + "\n")
-     		   }
+     		   //}
     		}
 		}
 		txtNoKeyword.Close()
