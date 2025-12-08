@@ -378,7 +378,12 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 			     match := re.FindString(clean)
         		 //match := regexp.MustCompile(`([a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+)$`).FindString(clean)
         	 	 if match != "" {
-            		txtNoKeyword.WriteString(match + "\n")
+		// 5. 去掉可能存在的前导点
+       				 if strings.HasPrefix(match, ".") {
+           				 match = match[1:]
+       				 }
+        			txtNoKeyword.WriteString(match + "\n")
+   				 }
 			   
 
 			   
