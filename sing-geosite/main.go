@@ -360,15 +360,30 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
      		   } else {
   		          txtNoKeyword.WriteString(item.Value + "\n")
     		    }
-  		   case geosite.RuleTypeDomainRegex:
+
+
+   		 case geosite.RuleTypeDomainRegex:
+        // 先替换掉转义符 `\.`
+        	 cleanRegex := strings.ReplaceAll(item.Value, `\.`, ".")
+        // 从清理后的字符串中提取域名结尾部分
+       		 re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+        	 match := re.FindString(cleanRegex)
+        	 if match != "" {
+            	txtNoKeyword.WriteString(match + "\n")
+			   
+
+			   
+
+			   
+  		  // case geosite.RuleTypeDomainRegex:
    		     // 提取域名部分
-			   item.Value = strings.TrimPrefix(item.Value, "^")
+			  // item.Value = strings.TrimPrefix(item.Value, "^")
 			   //item.Value = strings.TrimSuffix(item.Value, "$")
-   		       re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+   		       //re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
 			   //re := regexp.MustCompile(`[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}`)
-    		       match := re.FindString(item.Value)
-     		   if match != "" {
-     		       txtNoKeyword.WriteString(match + "\n")
+    		   //match := re.FindString(item.Value)
+     		   //if match != "" {
+     		     //  txtNoKeyword.WriteString(match + "\n")
      		   }
     		}
 		}
