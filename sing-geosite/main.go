@@ -339,6 +339,36 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 			}
 		}
 		txtClean.Close()
+
+
+		// ---- TXT: No Keyword (Domain + Suffix + Regex to domain) ----
+		txtNoKeywordPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-nokeyword.txt")
+		txtNoKeyword, err := os.Create(txtNoKeywordPath)
+		if err != nil {
+		    return err
+		}
+			for _, item := range domains {
+  		  switch item.Type {
+ 		   case geosite.RuleTypeDomain:
+    		    // 直接输出
+     		   txtNoKeyword.WriteString(item.Value + "\n")
+ 		   case geosite.RuleTypeDomainSuffix:
+  		      // 去掉开头的点
+     		   if strings.HasPrefix(item.Value, ".") {
+     		       txtNoKeyword.WriteString(item.Value[1:] + "\n")
+     		   } else {
+  		          txtNoKeyword.WriteString(item.Value + "\n")
+    		    }
+  		  case geosite.RuleTypeDomainRegex:
+   		     // 提取域名部分
+   		     re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+    		    match := re.FindString(item.Value)
+     		   if match != "" {
+     		       txtNoKeyword.WriteString(match + "\n")
+     		   }
+    		}
+		}
+		txtNoKeyword.Close()
 		
 
 		
