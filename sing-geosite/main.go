@@ -348,8 +348,8 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 		if err != nil {
 		    return err
 		}
-			for _, item := range domains {
-  		  switch item.Type {
+		for _, item := range domains {
+  		   switch item.Type {
  		   case geosite.RuleTypeDomain:
     		    // 直接输出
      		   txtNoKeyword.WriteString(item.Value + "\n")
@@ -360,10 +360,12 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
      		   } else {
   		          txtNoKeyword.WriteString(item.Value + "\n")
     		    }
-  		  case geosite.RuleTypeDomainRegex:
+  		   case geosite.RuleTypeDomainRegex:
    		     // 提取域名部分
-   		     re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
-    		    match := re.FindString(item.Value)
+			   regexStr = strings.TrimPrefix(regexStr, "^")
+			   regexStr = strings.TrimSuffix(regexStr, "$")
+   		       re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
+    		       match := re.FindString(item.Value)
      		   if match != "" {
      		       txtNoKeyword.WriteString(match + "\n")
      		   }
