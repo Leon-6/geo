@@ -256,6 +256,25 @@ func release(source string, destination string, output string, ruleSetOutput str
 			return err
 		}
 		outputRuleSet.Close()
+
+		
+        txtPath, _ := filepath.Abs(filepath.Join(ruleSetOutput, "geoip-"+countryCode+".txt"))
+        os.Stderr.WriteString("write " + txtPath + "\n")
+
+        txtFile, err := os.Create(txtPath)
+        if err != nil {
+            return err
+        }
+
+        // 写入每一行 CIDR：直接按行输出
+        for _, cidr := range ipNets {
+            txtFile.WriteString(cidr.String() + "\n")
+        }
+        txtFile.Close()
+		
+
+
+		
 	}
 
 	setActionOutput("tag", *sourceRelease.Name)
