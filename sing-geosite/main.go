@@ -343,65 +343,57 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
 
 
 		// ---- TXT: No Keyword (Domain + Suffix + Regex to domain) ----
-		txtNoKeywordPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-nokeyword.txt")
-		txtNoKeyword, err := os.Create(txtNoKeywordPath)
-		if err != nil {
-		    return err
-		}
-		for _, item := range domains {
-  		   switch item.Type {
- 		   case geosite.RuleTypeDomain:
-    		    // 直接输出
-     		   txtNoKeyword.WriteString(item.Value + "\n")
- 		   case geosite.RuleTypeDomainSuffix:
-  		      // 去掉开头的点
-     		   if strings.HasPrefix(item.Value, ".") {
-     		       txtNoKeyword.WriteString(item.Value[1:] + "\n")
-     		   } else {
-  		          txtNoKeyword.WriteString(item.Value + "\n")
-    		    }
+// ---- TXT: No Keyword (去重版本) ----
+	txtNoKeywordPath := filepath.Join(ruleSetOutput, "geosite-"+code+"-nokeyword.txt")
+	txtNoKeyword, err := os.Create(txtNoKeywordPath)
+	if err != nil {
+    	return err
+	}
 
+// 去重集合
+	written := make(map[string]struct{})
 
-   		 	case geosite.RuleTypeDomainRegex:
-        // 1. 去掉转义符
-       			 clean := strings.ReplaceAll(item.Value, `\.`, ".")
-        // 2. 去掉开头结尾锚点
-        		 clean = strings.TrimPrefix(clean, "^")
-        		 clean = strings.TrimSuffix(clean, "$")
-        // 3. 删除正则特殊匹配符号（简单粗暴清理）
-       			 //clean = regexp.MustCompile(`[\\]\S\+`).ReplaceAllString(clean, "")
-        		 //clean = regexp.MustCompile(`\[[^\]]+\]`).ReplaceAllString(clean, "")
-        		 //clean = regexp.MustCompile(`\([^\)]+\)`).ReplaceAllString(clean, "")
-        		 //clean = regexp.MustCompile(`\?|\*|\+`).ReplaceAllString(clean, "")
-        // 4. 提取最后的域名部分
-			   	 re := regexp.MustCompile(`[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
-			     match := re.FindString(clean)
-        		 //match := regexp.MustCompile(`([a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+)$`).FindString(clean)
-        	 	 if match != "" {
-		// 5. 去掉可能存在的前导点
-       				 if strings.HasPrefix(match, ".") {
-           				 match = match[1:]
-       				 }
-        			txtNoKeyword.WriteString(match + "\n")
-   				 }
-			   
+	for _, item := range domains {
+   	 var domain string
+	
+   	 switch item.Type {
+   	 case geosite.RuleTypeDomain:
+     	   domain = item.Value
 
-			   
+  	  case geosite.RuleTypeDomainSuffix:
+    	    if strings.HasPrefix(item.Value,".") {
+        	    domain = item.Value[1:] // 去掉前导点
+       	 } else {
+        	    domain = item.Value
+       	 }
 
-			   
-  		  // case geosite.RuleTypeDomainRegex:
-   		     // 提取域名部分
-			  // item.Value = strings.TrimPrefix(item.Value, "^")
-			   //item.Value = strings.TrimSuffix(item.Value, "$")
-   		       //re := regexp.MustCompile(`([a-zA-Z0-9.-]+\.[a-zA-Z]+)$`)
-			   //re := regexp.MustCompile(`[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}`)
-    		   //match := re.FindString(item.Value)
-     		   //if match != "" {
-     		     //  txtNoKeyword.WriteString(match + "\n")
-     		   //}
-    		}
-		}
-		txtNoKeyword.Close()
+    	case geosite.RuleTypeDomainRegex:
+        	// 去掉转义符
+        	clean := strings.ReplaceAll(item.Value, `\.`, ".")
+        	// 去掉 ^ 和 $
+        	clean = strings.TrimPrefix(clean, "^")
+        	clean = strings.TrimSuffix(clean, "$")
+        	// 匹配最后的域名（支持多级域名）
+       	 re := regexp.MustCompile(`[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+       	 match := re.FindString(clean)
+       	 if match != "" {
+          	  if strings.HasPrefix(match, ".") {
+              	  match = match[1:]
+          	  }
+          	  domain = match
+       	 }
+   	 }
+
+   	 // 写入前先检查是否已存在
+   	 if domain != "" {
+     	   if _, exists := written[domain]; !exists {
+      	      txtNoKeyword.WriteString(domain + "\n")
+       	     written[domain] = struct{}{}
+     	   }
+   	 }
+	}
+
+	txtNoKeyword.Close()
 		
 
 		
