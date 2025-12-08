@@ -369,12 +369,14 @@ func generate(release *github.RepositoryRelease, output string, cnOutput string,
         		 clean = strings.TrimPrefix(clean, "^")
         		 clean = strings.TrimSuffix(clean, "$")
         // 3. 删除正则特殊匹配符号（简单粗暴清理）
-       			 clean = regexp.MustCompile(`[\\]\S\+`).ReplaceAllString(clean, "")
-        		 clean = regexp.MustCompile(`\[[^\]]+\]`).ReplaceAllString(clean, "")
-        		 clean = regexp.MustCompile(`\([^\)]+\)`).ReplaceAllString(clean, "")
-        		 clean = regexp.MustCompile(`\?|\*|\+`).ReplaceAllString(clean, "")
+       			 //clean = regexp.MustCompile(`[\\]\S\+`).ReplaceAllString(clean, "")
+        		 //clean = regexp.MustCompile(`\[[^\]]+\]`).ReplaceAllString(clean, "")
+        		 //clean = regexp.MustCompile(`\([^\)]+\)`).ReplaceAllString(clean, "")
+        		 //clean = regexp.MustCompile(`\?|\*|\+`).ReplaceAllString(clean, "")
         // 4. 提取最后的域名部分
-        		 match := regexp.MustCompile(`([a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+)$`).FindString(clean)
+			   	 re := regexp.MustCompile(`[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+			     match := re.FindString(clean)
+        		 //match := regexp.MustCompile(`([a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+)$`).FindString(clean)
         	 	 if match != "" {
             		txtNoKeyword.WriteString(match + "\n")
 			   
