@@ -1,0 +1,1 @@
+^hses[1-7]?\.akamaized\.net$

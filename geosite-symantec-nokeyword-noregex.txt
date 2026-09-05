@@ -1,0 +1,4 @@
+symantec.com
+.symantec.com
+symantecliveupdate.com
+.symantecliveupdate.com

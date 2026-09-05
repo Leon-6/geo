@@ -1,0 +1,4 @@
+easy-jtag.com
+.easy-jtag.com
+z3x-team.com
+.z3x-team.com

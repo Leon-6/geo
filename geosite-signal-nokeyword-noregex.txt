@@ -1,0 +1,16 @@
+signal.art
+.signal.art
+signal.group
+.signal.group
+signal.link
+.signal.link
+signal.me
+.signal.me
+signal.tube
+.signal.tube
+signal.org
+.signal.org
+signalusers.org
+.signalusers.org
+whispersystems.org
+.whispersystems.org

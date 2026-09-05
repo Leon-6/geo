@@ -1,0 +1,12 @@
+chef.io
+.chef.io
+getfiddler.com
+.getfiddler.com
+kemptechnologies.com
+.kemptechnologies.com
+progress.com
+.progress.com
+sharefile.com
+.sharefile.com
+telerik.com
+.telerik.com

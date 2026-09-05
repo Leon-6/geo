@@ -1,0 +1,4 @@
+habr.com
+.habr.com
+habrastorage.org
+.habrastorage.org

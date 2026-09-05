@@ -1,0 +1,9 @@
+prodforza.blob.core.windows.net
+forza.net
+.forza.net
+forzamotorsport.net
+.forzamotorsport.net
+forzaracingchampionship.com
+.forzaracingchampionship.com
+forzarc.com
+.forzarc.com

@@ -1,0 +1,4 @@
+blurams.app
+.blurams.app
+blurams.com
+.blurams.com

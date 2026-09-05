@@ -1,0 +1,8 @@
+dzen.ru
+.dzen.ru
+dzeninfra.ru
+.dzeninfra.ru
+log.dzen.ru
+.log.dzen.ru
+ms.dzen.ru
+.ms.dzen.ru

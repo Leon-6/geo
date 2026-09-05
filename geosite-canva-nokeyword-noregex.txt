@@ -1,0 +1,12 @@
+affinity.studio
+.affinity.studio
+canva.com
+.canva.com
+canvastatus.com
+.canvastatus.com
+affinity.api.serifservices.com
+.affinity.api.serifservices.com
+affinity-beta.s3.amazonaws.com
+.affinity-beta.s3.amazonaws.com
+affinity-lessons.s3.amazonaws.com
+.affinity-lessons.s3.amazonaws.com

@@ -1,0 +1,5 @@
+.gog.com
+.gog-services.com
+.gog-statics.com
+.gogalaxy.com
+.insights-collector.gog.com

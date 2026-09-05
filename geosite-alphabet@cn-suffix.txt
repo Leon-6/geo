@@ -1,0 +1,10 @@
+.google.cn
+.g.cn
+.gkecnapps.cn
+.googlecnapps.cn
+.gstatic.cn
+.gstaticcnapps.cn
+.265.com
+.gvt1-cn.com
+.gvt2-cn.com
+.ggpht.cn

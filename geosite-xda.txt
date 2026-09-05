@@ -1,0 +1,8 @@
+xda-cdn.com
+.xda-cdn.com
+xda-developers.com
+.xda-developers.com
+xdaforums.com
+.xdaforums.com
+xdaimages.com
+.xdaimages.com

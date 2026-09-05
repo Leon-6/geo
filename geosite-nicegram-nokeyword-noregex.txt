@@ -1,0 +1,6 @@
+nicegram.app
+.nicegram.app
+nicegram.cloud
+.nicegram.cloud
+adsgram.ai
+.adsgram.ai

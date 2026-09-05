@@ -1,0 +1,10 @@
+bitwarden.com
+.bitwarden.com
+bitwarden.eu
+.bitwarden.eu
+bitwarden.net
+.bitwarden.net
+btwrdn.co
+.btwrdn.co
+btwrdn.com
+.btwrdn.com

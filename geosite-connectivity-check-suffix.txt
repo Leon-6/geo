@@ -1,0 +1,10 @@
+.kuketz.de
+.msftconnecttest.com
+.msftncsi.com
+.cp.cloudflare.com
+.network-test.debian.org
+.detectportal.firefox.com
+.ipv6check-http.steamserver.net
+.ipv6check-udp.steamserver.net
+.test.steampowered.com
+.captive.apple.com

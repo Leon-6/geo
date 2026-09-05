@@ -1,0 +1,10 @@
+symauth.com
+.symauth.com
+symcb.com
+.symcb.com
+symcd.com
+.symcd.com
+pki.symantec.com
+.pki.symantec.com
+ws.symantec.com
+.ws.symantec.com

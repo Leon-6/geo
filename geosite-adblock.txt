@@ -1,0 +1,4 @@
+adblockcdn.com
+.adblockcdn.com
+getadblock.com
+.getadblock.com

@@ -1,0 +1,6 @@
+lastpass.com
+.lastpass.com
+lastpass.eu
+.lastpass.eu
+lputil.com
+.lputil.com

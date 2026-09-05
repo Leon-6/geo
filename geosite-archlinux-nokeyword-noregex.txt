@@ -1,0 +1,12 @@
+archlinux.de
+.archlinux.de
+archlinux.org
+.archlinux.org
+archlinux.page
+.archlinux.page
+archlinuxarm.org
+.archlinuxarm.org
+pkgbuild.com
+.pkgbuild.com
+archlinuxcn.org
+.archlinuxcn.org

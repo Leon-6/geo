@@ -1,0 +1,7 @@
+.bitballoon.com
+.netlify.app
+.netlify.com
+.netlifydns.com
+.netlifystatus.com
+.netlifyusercontent.com
+.ntl.fyi

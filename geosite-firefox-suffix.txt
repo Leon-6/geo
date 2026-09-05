@@ -1,0 +1,5 @@
+.extendfirefox.com
+.firefox.com
+.firefox.hu
+.firefoxtweetmachine.com
+.firefoxusercontent.com

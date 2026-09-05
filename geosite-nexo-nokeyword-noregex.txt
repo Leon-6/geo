@@ -1,0 +1,4 @@
+nexo.com
+.nexo.com
+nexo.io
+.nexo.io

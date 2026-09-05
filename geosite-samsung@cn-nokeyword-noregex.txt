@@ -1,0 +1,8 @@
+samsung.com.cn
+.samsung.com.cn
+samsungcloudcn.com
+.samsungcloudcn.com
+samsungeshop.com.cn
+.samsungeshop.com.cn
+samsunghealthcn.com
+.samsunghealthcn.com

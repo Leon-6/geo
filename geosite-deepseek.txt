@@ -1,0 +1,4 @@
+deepseek.com
+.deepseek.com
+deepseeksvc.com
+.deepseeksvc.com
