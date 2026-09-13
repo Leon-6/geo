@@ -1,0 +1,8 @@
+tubi.io
+.tubi.io
+tubi.tv
+.tubi.tv
+tubi.video
+.tubi.video
+tubitv.com
+.tubitv.com

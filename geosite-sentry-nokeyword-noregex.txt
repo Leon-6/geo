@@ -1,0 +1,8 @@
+getsentry.com
+.getsentry.com
+sentry.dev
+.sentry.dev
+sentry.io
+.sentry.io
+sentry-cdn.com
+.sentry-cdn.com

@@ -1,0 +1,11 @@
+gamedownloads-rockstargames-com.akamaized.net
+media-rockstargames-com.akamaized.net
+videos-rockstargames-com.akamaized.net
+rockstargames.com
+.rockstargames.com
+rockstarnorth.com
+.rockstarnorth.com
+rsg.ms
+.rsg.ms
+rsg.sc
+.rsg.sc

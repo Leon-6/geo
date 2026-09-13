@@ -1,0 +1,8 @@
+grok.com
+.grok.com
+grokipedia.com
+.grokipedia.com
+x.ai
+.x.ai
+grok.x.com
+.grok.x.com

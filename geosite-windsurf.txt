@@ -1,0 +1,8 @@
+codeium.com
+.codeium.com
+codeiumdata.com
+.codeiumdata.com
+windsurf.build
+.windsurf.build
+windsurf.com
+.windsurf.com

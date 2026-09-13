@@ -1,0 +1,6 @@
+gamesplanet.com
+.gamesplanet.com
+gametap.com
+.gametap.com
+gpstatic.com
+.gpstatic.com

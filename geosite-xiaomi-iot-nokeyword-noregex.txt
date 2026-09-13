@@ -1,0 +1,8 @@
+miot-spec.org
+.miot-spec.org
+account.xiaomi.com
+.account.xiaomi.com
+cn-ha.mqtt.io.mi.com
+.cn-ha.mqtt.io.mi.com
+ha.api.io.mi.com
+.ha.api.io.mi.com

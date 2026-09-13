@@ -1,0 +1,4 @@
+github1s.com
+.github1s.com
+sourcegraph.com
+.sourcegraph.com

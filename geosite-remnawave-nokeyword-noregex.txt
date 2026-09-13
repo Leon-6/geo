@@ -1,0 +1,8 @@
+docs.rw
+.docs.rw
+log.rw
+.log.rw
+remna.st
+.remna.st
+try.rw
+.try.rw

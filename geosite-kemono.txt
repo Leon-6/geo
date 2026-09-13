@@ -1,0 +1,6 @@
+kemono.cr
+.kemono.cr
+kemono.party
+.kemono.party
+kemono.su
+.kemono.su

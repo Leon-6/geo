@@ -1,0 +1,4 @@
+linux.do
+.linux.do
+ldstatic.com
+.ldstatic.com

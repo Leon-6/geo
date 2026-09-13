@@ -1,0 +1,8 @@
+mail.com
+.mail.com
+ui-portal.de
+.ui-portal.de
+uicdn.com
+.uicdn.com
+uimserv.net
+.uimserv.net

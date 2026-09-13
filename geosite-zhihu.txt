@@ -1,0 +1,12 @@
+zhihu.com
+.zhihu.com
+zhimg.com
+.zhimg.com
+laiyagushi.com
+.laiyagushi.com
+vzuu.com
+.vzuu.com
+crash2.zhihu.com
+.crash2.zhihu.com
+zhihu-web-analytics.zhihu.com
+.zhihu-web-analytics.zhihu.com

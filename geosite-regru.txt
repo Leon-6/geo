@@ -1,0 +1,6 @@
+reg.cloud
+.reg.cloud
+reg.com
+.reg.com
+reg.ru
+.reg.ru

@@ -1,0 +1,6 @@
+discourse-cdn.com
+.discourse-cdn.com
+discourse.group
+.discourse.group
+discourse.org
+.discourse.org

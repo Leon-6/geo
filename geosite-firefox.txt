@@ -1,0 +1,12 @@
+mozilla-ohttp.fastly-edge.com
+mozilla.map.fastly.net
+extendfirefox.com
+.extendfirefox.com
+firefox.com
+.firefox.com
+firefox.hu
+.firefox.hu
+firefoxtweetmachine.com
+.firefoxtweetmachine.com
+firefoxusercontent.com
+.firefoxusercontent.com

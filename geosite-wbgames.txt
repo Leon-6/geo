@@ -1,0 +1,10 @@
+datarouter.apps.netherrealm.com
+wb-agora-hydra-file-storage-k1.s3.amazonaws.com
+warnerbrosgames.com
+.warnerbrosgames.com
+wbagora.com
+.wbagora.com
+wbgames.com
+.wbgames.com
+wbinsights.com
+.wbinsights.com

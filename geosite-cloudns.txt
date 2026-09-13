@@ -1,0 +1,4 @@
+cloudns.nz
+.cloudns.nz
+cloudns.ph
+.cloudns.ph

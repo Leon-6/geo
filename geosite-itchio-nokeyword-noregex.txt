@@ -1,0 +1,4 @@
+itch.io
+.itch.io
+itch.zone
+.itch.zone

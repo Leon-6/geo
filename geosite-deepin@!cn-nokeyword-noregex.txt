@@ -1,0 +1,4 @@
+deepin.io
+.deepin.io
+deepin.org
+.deepin.org

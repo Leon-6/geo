@@ -1,0 +1,6 @@
+esm.run
+.esm.run
+jsdelivr.com
+.jsdelivr.com
+jsdelivr.net
+.jsdelivr.net
